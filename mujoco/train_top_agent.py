@@ -15,7 +15,7 @@ from utils import MeanStdevFilter, Transition, make_gif, make_checkpoint
 
 GYM_ENV = gym.wrappers.time_limit.TimeLimit
 
-def train_agent_model_free(agent: DOPE_Agent, env: GYM_ENV, params: Dict) -> None:
+def train_agent_model_free(agent: TOP_Agent, env: GYM_ENV, params: Dict) -> None:
     
     update_timestep = params['update_every_n_steps']
     seed = params['seed']
@@ -135,7 +135,7 @@ def train_agent_model_free(agent: DOPE_Agent, env: GYM_ENV, params: Dict) -> Non
 
 def evaluate_agent(
     env: GYM_ENV,
-    agent: DOPE_Agent,
+    agent: TOP_Agent,
     state_filter: Callable,
     n_starts: int = 1) -> float:
     
@@ -178,7 +178,7 @@ def main():
     action_dim = env.action_space.shape[0]
 
     # initialize agent
-    agent = DOPE_Agent(seed, state_dim, action_dim, \
+    agent = TOP_Agent(seed, state_dim, action_dim, \
         n_quantiles=params['n_quantiles'], bandit_lr=params['bandit_lr'])
 
     # train agent 
