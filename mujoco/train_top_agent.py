@@ -35,7 +35,7 @@ def train_agent_model_free(agent: TOP_Agent, env: GYM_ENV, params: Dict) -> None
     cumulative_log_timestep = 0
     n_updates = 0
     i_episode = 0
-    log_episode = 0
+    log_episode = 0     # Y: useless
     samples_number = 0
     episode_rewards = []
     episode_steps = []
@@ -61,7 +61,7 @@ def train_agent_model_free(agent: TOP_Agent, env: GYM_ENV, params: Dict) -> None
         time_step = 0
         episode_reward = 0
         i_episode += 1
-        log_episode += 1
+        log_episode += 1    # Y: useless
         state = env.reset()
         if state_filter:
             state_filter.update(state)

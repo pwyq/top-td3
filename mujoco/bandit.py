@@ -23,7 +23,7 @@ class ExpWeights(object):
         """
         
         self.arms = arms
-        self.w = {i:init for i in range(len(self.arms))}
+        self.w = {i:init for i in range(len(self.arms))} # Y: {i:10 for i in range(5)} gives {0: 10, 1: 10, 2: 10, 3: 10, 4: 10}
         self.arm = 0
         self.value = self.arms[self.arm]
         self.error_buffer = []
@@ -33,7 +33,7 @@ class ExpWeights(object):
         self.use_std = use_std
         
         self.choices = [self.arm]
-        self.data = []
+        self.data = []  # Y: seems useless
         
     def sample(self) -> float:
         """Sample from distribution. 
@@ -65,7 +65,7 @@ class ExpWeights(object):
         """Update distribution over arms. 
 
         Args:
-            feedback (float): Feedback signal. 
+            feedback (float): Feedback signal. # Y: (f_m in the paper)
             norm (float, optional): Normalization factor. Defaults to 1.0.
         """
 
